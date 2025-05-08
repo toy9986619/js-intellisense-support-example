@@ -14,6 +14,10 @@ export const initApp = (name = DEFAULT_APP_NAME) => {
   return app;
 };
 
+/**
+ * @param {string} name
+ * @returns {App}
+ */
 export const getApp = (name = DEFAULT_APP_NAME) => {
   if (!_app.has(name)) {
     throw new Error(`App ${name} is not exist`);

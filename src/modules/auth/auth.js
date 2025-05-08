@@ -1,6 +1,7 @@
 import { Subscription } from '../../utils/subscription';
 class Auth {
   constructor(app) {
+    /** @type {import('../app/app').App} */
     this.app = app;
     this.subscription = new Subscription();
   }
