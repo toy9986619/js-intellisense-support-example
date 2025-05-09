@@ -3,6 +3,10 @@ import { Auth } from './auth';
 /** @typedef {import('../app/app').App} App */
 /** @import * as Types from './types/auth' */
 
+/**
+ * @param {App} app
+ * @returns {Auth}
+ */
 export const initAuth = (app) => {
   const auth = new Auth(app);
   app.setService('auth', auth);
