@@ -14,10 +14,29 @@ const esBuild = {
   ])),
   output: {
     format: 'es',
-    dir: `${outputDir}/dist`,
+    dir: `${outputDir}/es`,
+    sourcemap: true,
   },
+  external: ["eventemitter3"],
+};
+
+const commonJsBuild = {
+  input: Object.fromEntries(globSync('src/**/*.js').map((file) => [
+    path.relative(
+      'src',
+      file.slice(0, file.length - path.extname(file).length)
+    ),
+    fileURLToPath(new URL(file, import.meta.url))
+  ])),
+  output: {
+    format: 'cjs',
+    dir: `${outputDir}/cjs`,
+    sourcemap: true,
+  },
+  external: ["eventemitter3"],
 };
 
 export default [
   esBuild,
+  commonJsBuild,
 ];

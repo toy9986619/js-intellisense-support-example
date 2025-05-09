@@ -10,6 +10,20 @@
     "build:watch": "rollup -c -w",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "files": [
+    "**/dist/**/*",
+    "**/package.json"
+  ],
+  "exports": {
+    "./app": {
+      "import": "./dist/es/modules/app/index.js",
+      "require": "./dist/cjs/modules/app/index.js"
+    },
+    "./auth": {
+      "import": "./dist/es/modules/auth/index.js",
+      "require": "./dist/cjs/modules/auth/index.js"
+    }
+  },
   "devDependencies": {
     "glob": "10.4.5",
     "rollup": "^4.40.2",
