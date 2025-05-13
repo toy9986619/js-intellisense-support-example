@@ -1,0 +1,10 @@
+{
+    "entryPoints": [
+        "./src/**/*.js",
+        "./src/**/types/**.ts",
+        "./package.json"
+    ],
+    "out": "./docs",
+    "tsconfig": "./tsconfig.json",
+    "includeVersion": true
+}

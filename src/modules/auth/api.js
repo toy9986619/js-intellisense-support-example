@@ -1,7 +1,7 @@
 import { Auth } from './auth';
 
-/** @typedef {import('../app/app').App} App */
-/** @import * as Types from './types/auth' */
+/** @typedef {import('@/modules/app/app').App} App */
+/** @import * as Types from '@/modules/auth/types/auth' */
 
 /**
  * @param {App} app
@@ -28,9 +28,27 @@ export const getAuth = (app) => {
 };
 
 /**
- * @param {Auth} auth
- * @param {Types.AuthStateChangedListener} callback
- * @returns {Function}
+ * A function to listen to authentication state changes.
+ *
+ * ```js
+ * import { getApp } from 'js-intellisense-support/app';
+ * import { getAuth, onAuthStateChanged } from 'js-intellisense-support/auth';
+ *
+ * const app = getApp();
+ * const auth = getAuth(app);
+ * const unsubscribe = onAuthStateChanged(auth, ({ uid }) => {
+ *   if (uid) {
+ *     console.log('User is signed in:', uid);
+ *   }
+ *  else {
+ *    console.log('User is signed out');
+ *  }
+ * });
+ * ```
+ *
+ * @param {Auth} auth - The Auth module instance.
+ * @param {Types.AuthStateChangedListener} callback - The callback function to be called when the authentication state changes.
+ * @returns {Function} Unsubscribe function to stop listening to authentication state changes.
  */
 export const onAuthStateChanged = (auth, callback = () => { }) => {
   const unsubscribe = auth.registerListener('auth_state_changed', callback);

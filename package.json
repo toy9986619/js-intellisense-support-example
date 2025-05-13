@@ -27,11 +27,15 @@
     }
   },
   "devDependencies": {
+    "@rollup/plugin-alias": "^5.1.1",
     "glob": "10.4.5",
     "rollup": "^4.40.2",
+    "rollup-plugin-dts": "^6.2.1",
+    "typedoc": "^0.28.4",
     "typescript": "^5.8.3"
   },
   "dependencies": {
-    "eventemitter3": "^5.0.1"
+    "eventemitter3": "^5.0.1",
+    "js-intellisense-support-example": "file:.yalc/js-intellisense-support-example"
   }
 }
